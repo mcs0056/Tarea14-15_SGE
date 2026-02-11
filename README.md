@@ -10,11 +10,11 @@ El objetivo del módulo es permitir el fichaje de empleados con acciones de **En
 
 1. **Identidad Visual Personalizada**  
    - El menú principal del módulo muestra:  
-     `Presencia - [TuNombre]`  
+     `Presencia - MiguelCeballos`  
    - Esto se refleja en el tablero principal de Odoo.
 
 2. **Modelo de Datos**  
-   - Campo `tipo_accion` del modelo `fichaje.asistencia` con opciones:  
+   - Campo `tipo_accion` del modelo `fichaje_asistencia` con opciones:  
      - `entrada` → Entrada  
      - `salida` → Salida  
      - `descanso` → Descanso  
@@ -36,23 +36,15 @@ El objetivo del módulo es permitir el fichaje de empleados con acciones de **En
 
 ### Pasos
 
-1. Clonar el repositorio:
-
-```bash
-git clone https://github.com/tuusuario/fichaje.git
-cd fichaje
-```
-
-2. Asegurarse de que los contenedores estén activos:
+1. Asegurarse de que los contenedores estén activos:
 ```bash
 docker compose up -d
 ```
-3. Actualizar el módulo desde Odoo
-  - Activar modo desarrollador (?debug=1)
+2. Actualizar el módulo desde Odoo
   - Ir a Apps → Buscar módulo fichaje → Pulsar Actualizar
 Esto recarga los cambios en Python y XML.
 
-4. Verificar que la opción Descanso aparece en el desplegable Accion al crear un nuevo registro.
+3. Verificar que la opción Descanso aparece en el desplegable Accion al crear un nuevo registro.
 
 ---
 
@@ -60,7 +52,7 @@ Esto recarga los cambios en Python y XML.
 
 Para comprobar que el registro se guarda correctamente:
 ```bash
-SELECT id, tipo_accion
+SELECT *
 FROM fichaje_asistencia
 WHERE tipo_accion = 'descanso';
 ```
